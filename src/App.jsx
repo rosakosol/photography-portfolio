@@ -14,9 +14,9 @@ import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import Captions from "yet-another-react-lightbox/plugins/captions"; // ✅ NEW
+import Captions from "yet-another-react-lightbox/plugins/captions"; 
 import "yet-another-react-lightbox/plugins/thumbnails.css";
-import "yet-another-react-lightbox/plugins/captions.css"; // ✅ ensure captions styles are imported
+import "yet-another-react-lightbox/plugins/captions.css";
 
 export default function App() {
   const [index, setIndex] = useState(-1);
@@ -29,7 +29,7 @@ export default function App() {
         <section className="p-6">
           <MasonryPhotoAlbum
             photos={photos}
-            onClick={({ index }) => setIndex(index)} // ✅ open lightbox on click
+            onClick={({ index }) => setIndex(index)} 
           />
         </section>
 
@@ -38,7 +38,11 @@ export default function App() {
           open={index >= 0}
           index={index}
           close={() => setIndex(-1)}
-          plugins={[Fullscreen, Slideshow, Thumbnails, Zoom, Captions]} // ✅ captions plugin added
+          plugins={[Fullscreen, Slideshow, Thumbnails, Zoom, Captions]} 
+          captions={{
+            showToggle: true,        // adds a captions toggle button
+            descriptionTextAlign: "center",
+          }}
         />
 
         <section id="about" className="py-16 px-6 text-center">
